@@ -1,0 +1,18 @@
+.user-container {
+  margin: 10px 5px;
+}
+.user-result {
+  display: inline-block;
+  margin: 5px;
+  border: 1px solid green;
+  padding: 10px;
+  min-height: 100px;
+  min-width: 300px;
+  border-radius: 10px;
+}
+
+.user-result:hover {
+  cursor: pointer;
+  background-color: green;
+  color: white;
+}
