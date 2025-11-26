@@ -30,7 +30,7 @@ const SearchApp = () => {
 
   return (
     <div
-      className='min-h-screen flex flex-col items-center p-6 bg-gray-100'
+      className='relative min-h-screen flex flex-col items-center p-6 bg-gray-100 overflow-hidden'
       style={{
         backgroundImage:
           "url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23e5e7eb%22 stroke-width=%221.5%22><path d=%22M12 2C10 4 8 5 6 5C4 5 2 4 2 2C4 2 5 4 5 6C5 8 4 10 2 12C4 12 6 11 6 9C6 7 7 5 9 5C11 5 13 7 13 9C13 11 15 12 17 12C19 12 22 11 22 9C20 9 19 11 19 13C19 15 20 17 22 19C20 19 18 18 18 16C18 14 16 12 14 12C12 12 10 14 10 16C10 18 8 19 6 19C4 19 2 18 2 16C4 16 5 18 5 20C5 22 4 24 2 24%22/></svg>')",
@@ -38,10 +38,23 @@ const SearchApp = () => {
         backgroundSize: '180px',
       }}
     >
+      {/* Floating Food Icons */}
+      <div className='floating absolute text-4xl top-10 left-10 opacity-30'>
+        🍔
+      </div>
+      <div className='floating2 absolute text-4xl top-40 right-10 opacity-30'>
+        🍕
+      </div>
+      <div className='floating3 absolute text-4xl bottom-20 left-20 opacity-30'>
+        🧁
+      </div>
+      <div className='floating4 absolute text-4xl bottom-28 right-20 opacity-30'>
+        🍩
+      </div>
+
       <h1 className='text-3xl font-bold mb-6 text-gray-800'>Search App</h1>
 
       <div className='relative w-full max-w-md'>
-        {/* Search Input */}
         <input
           className='w-full px-4 py-3 border rounded-xl shadow-sm outline-none 
                      focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
@@ -53,7 +66,6 @@ const SearchApp = () => {
           onBlur={() => setShowResults(false)}
         />
 
-        {/* Results Box */}
         {showResults && results.length > 0 && (
           <div
             className='absolute mt-2 w-full bg-white shadow-lg rounded-xl 
@@ -71,6 +83,25 @@ const SearchApp = () => {
           </div>
         )}
       </div>
+
+      {/* Floating Animation Styles */}
+      <style>{`
+        @keyframes float1 {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+          100% { transform: translateY(0px); }
+        }
+        @keyframes float2 {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(25px); }
+          100% { transform: translateY(0px); }
+        }
+
+        .floating { animation: float1 5s ease-in-out infinite; }
+        .floating2 { animation: float2 6s ease-in-out infinite; }
+        .floating3 { animation: float1 7s ease-in-out infinite; }
+        .floating4 { animation: float2 5s ease-in-out infinite; }
+      `}</style>
     </div>
   );
 };
