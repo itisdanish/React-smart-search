@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles.css';
 
 const App = () => {
-  const [results, setResults] = useState([]);
   const [input, setInput] = useState('');
+  const [results, setResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(fetchData, 300);
-
+    // fetchData();
     return () => {
       clearTimeout(timer);
     };
@@ -19,15 +19,13 @@ const App = () => {
     const data = await fetch(`https://dummyjson.com/recipes/search?q=${input}`);
     const json = await data.json();
     setResults(json?.recipes);
-    // console.log(json?.recipes);
   };
 
   return (
     <div className='App'>
       <h1>Search App</h1>
-      <div className=''>
+      <div>
         <input
-          type='text'
           className='search-input'
           placeholder='Search'
           value={input}
@@ -37,9 +35,9 @@ const App = () => {
         />
         {showResults && (
           <div className='results-container'>
-            {results.map((item) => (
-              <span className='result' key={item.id}>
-                {item.name}
+            {results.map((res) => (
+              <span key={res.id} className='result'>
+                {res.name}
               </span>
             ))}
           </div>
