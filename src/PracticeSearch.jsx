@@ -25,6 +25,11 @@ const PracticeSearch = () => {
     setFilterRes(filtered);
   };
 
+  const handleSortByAge = () => {
+    const sorted = [...filterRes].sort((a, b) => a.age - b.age);
+    setFilterRes(sorted);
+  };
+
   return (
     <div
       className='min-h-screen w-full flex flex-col items-center p-8
@@ -45,6 +50,12 @@ const PracticeSearch = () => {
         onChange={(e) => setInput(e.target.value)}
         onKeyUp={handleFilter}
       />
+      <button
+        onClick={handleSortByAge}
+        className='px-4 py-2 bg-blue-600 text-white rounded-lg mt-4'
+      >
+        Sort by Age
+      </button>
 
       {/* Users List */}
       <div
