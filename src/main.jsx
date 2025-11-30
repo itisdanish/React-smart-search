@@ -4,11 +4,13 @@ import './index.css';
 import App from './App.jsx';
 import SearchApp from './SearchApp.jsx';
 import PracticeSearch from './PracticeSearch.jsx';
+import Parent from './ChildToParent/Parent.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <App /> */}
     {/* <SearchApp /> */}
-    <PracticeSearch />
+    {/* <PracticeSearch /> */}
+    <Parent/>
   </StrictMode>
 );
